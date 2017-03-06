@@ -18,7 +18,7 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <!-- <th scope="col"><?= $this->Paginator->sort('id') ?></th> -->
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('rating') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
@@ -29,7 +29,7 @@
         <tbody>
             <?php foreach ($ratings as $rating): ?>
             <tr>
-                <td><?= $this->Number->format($rating->id) ?></td>
+                <!-- <td><?= $this->Number->format($rating->id) ?></td> -->
                 <td><?= h($rating->title) ?></td>
                 <td><?= $this->Number->format($rating->rating) ?></td>
                 <td><?= $rating->has('user') ? $this->Html->link($rating->user->name, ['controller' => 'Users', 'action' => 'view', $rating->user->id]) : '' ?></td>

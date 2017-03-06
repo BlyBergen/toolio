@@ -10,7 +10,7 @@
         <li><?= $this->Html->link(__('List Ratings'), ['controller' => 'Ratings', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Rating'), ['controller' => 'Ratings', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Listings'), ['controller' => 'Listings', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Listing'), ['controller' => 'Listings', 'action' => 'add']) ?></li>
+        <!-- <li><?= $this->Html->link(__('New Listing'), ['controller' => 'Listings', 'action' => 'add']) ?></li> -->
     </ul>
 </nav>
 <div class="users form large-9 medium-8 columns content">
@@ -22,7 +22,7 @@
             echo $this->Form->input('email');
             echo $this->Form->input('password');
             echo $this->Form->input('zipcode');
-            echo $this->Form->input('listings._ids', ['options' => $listings]);
+            // echo $this->Form->input('listings._ids', ['options' => $listings]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
