@@ -215,6 +215,10 @@ Type::build('timestamp')
  *
  */
 
+ Plugin::load('Acl', ['bootstrap' => true]);
+ Plugin::load('Migrations');
+ \Cake\Core\Plugin::load('BootstrapUI');
+
 /*
  * Only try to load DebugKit in development mode
  * Debug Kit should not be installed on a production system
