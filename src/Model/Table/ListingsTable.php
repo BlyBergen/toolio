@@ -155,4 +155,23 @@ class ListingsTable extends Table
 
         return $rules;
     }
+
+    public function findUsers(Query $query, array $options)
+    {
+      return $this->find()
+        ->distinct(['Listings.id'])
+        ->matching('Users', function ($q) use ($options){
+          return $q->where(['Users.id IN' => $options['users']]);
+        });
+    }
+
+    public function findCategory(Query $query, array $options)
+    {
+      return $this->find()
+        ->distinct(['Listings.id'])
+        ->matching('Listings', function ($q) use ($options){
+          return $q->where(['Listings.category IN' => $options['categories']]);
+        });
+
+    }
 }

@@ -126,4 +126,22 @@ class UsersController extends AppController
       $this->Flash->success('You are now logged out');
       return $this->redirect($this->Auth->logout());
     }
+
+    public function listings()
+    {
+      $this->loadModel('Listings');
+      $user = $this->Auth->user('id');
+      // $listings = $this->Listings->find()->where([
+      //   'user_id' => $user
+      // ]);
+      $query = $this->Listings->find()->where(['user_id' => $user]);
+      $listings = $this->paginate($query);
+
+
+
+      $this->set([
+        'listings' => $listings,
+        'user' => $user
+      ]);
+    }
 }

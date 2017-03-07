@@ -108,4 +108,24 @@ class ListingsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    // public function categories()
+    // {
+    //   $categories = $this->request->params['pass'];
+    //   $listings = $this->Listings->find('category', ['categories' => $categories]);
+    //   $this->set([
+    //     'listings' => $listings,
+    //     'categories' => $categories
+    //   ]);
+    // }
+    //
+    // public function user()
+    // {
+    //   $users = $this->request->params['pass'];
+    //   $listings = $this->Listings->find('user', ['users' => $users]);
+    //   $this->set([
+    //     'listings'=> $listings,
+    //     'users' => $users
+    //   ]);
+    // }
 }

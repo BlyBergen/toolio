@@ -43,6 +43,34 @@ use Cake\Routing\Route\DashedRoute;
  */
 Router::defaultRouteClass(DashedRoute::class);
 
+// Router::scope('/listings',
+//   ['controller' => 'Listings'],
+//   function($routes){
+//     $routes->connect('/category/*', ['action' => 'categories']);
+//   }
+// );
+//
+// Router::scope('/ratings',
+//   ['controller' => 'Ratings'],
+//   function($routes){
+//     $routes->connect('/listing/*', ['action' => 'listings']);
+//   }
+// );
+//
+// Router::scope('/saved',
+//   ['controller' => 'Listings'],
+//     function($routes){
+//       $routes->connect('/user/*', ['action' => 'users']);
+//   }
+// );
+
+Router::scope('/listings',
+  ['controller'=> 'Users'],
+  function($routes){
+    $routes->connect('/listings', ['action' => 'listings']);
+  }
+);
+
 Router::scope('/', function (RouteBuilder $routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
@@ -50,6 +78,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/login', ['controller'=> 'users', 'action' => 'login']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
