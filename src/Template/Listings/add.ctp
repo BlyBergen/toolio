@@ -35,7 +35,7 @@
             echo $this->Form->input('pickup_onsite');
             echo $this->Form->input('saved');
             echo $this->Form->input('views');
-            echo $this->Form->input('user_id');
+            // echo $this->Form->input('user_id');
             // echo $this->Form->input('users._ids', ['options' => $users]);
         ?>
     </fieldset>

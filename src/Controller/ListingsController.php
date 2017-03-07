@@ -51,6 +51,8 @@ class ListingsController extends AppController
         $listing = $this->Listings->newEntity();
         if ($this->request->is('post')) {
             $listing = $this->Listings->patchEntity($listing, $this->request->data);
+            $id = $this->Auth->user('id');
+            $listing['user_id'] = $id;
             if ($this->Listings->save($listing)) {
                 $this->Flash->success(__('The listing has been saved.'));
 
