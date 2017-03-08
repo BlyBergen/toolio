@@ -16,7 +16,7 @@
 <div class="listings form large-9 medium-8 columns content">
     <?= $this->Form->create($listing) ?>
     <fieldset>
-        <legend><?= __('Add Listing') ?></legend>
+        <legend><?= __('New Listing') ?></legend>
         <?php
             echo $this->Form->input('title');
             echo $this->Form->input('category');

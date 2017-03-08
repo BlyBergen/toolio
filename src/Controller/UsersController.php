@@ -18,10 +18,16 @@ class UsersController extends AppController
      */
     public function index()
     {
+      if($this->typeAuth($id)){
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
+      }
+      else{
+        $this->Flash->error(__('Permission denied.'));
+        return $this->redirect(['controller' => 'listings', 'action' => 'index']);
+      }
     }
 
     /**
@@ -33,14 +39,19 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
+      if($this->userAuth($id)){
         $user = $this->Users->get($id, [
             'contain' => ['Listings', 'Ratings']
         ]);
 
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
+      }
+      else{
+        $this->Flash->error(__('Permission denied.'));
+        return $this->redirect(['controller' => 'listings', 'action' => 'index']);
+      }
     }
-
     /**
      * Add method
      *
@@ -73,6 +84,7 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
+      if($this->userAuth($id)){
         $user = $this->Users->get($id, [
             'contain' => ['Listings']
         ]);
@@ -88,6 +100,11 @@ class UsersController extends AppController
         $listings = $this->Users->Listings->find('list', ['limit' => 200]);
         $this->set(compact('user', 'listings'));
         $this->set('_serialize', ['user']);
+      }
+      else{
+        $this->Flash->error(__('Permission denied.'));
+        return $this->redirect(['controller' => 'listings', 'action' => 'index']);
+      }
     }
 
     /**

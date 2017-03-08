@@ -79,7 +79,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $routes->connect('/login', ['controller'=> 'users', 'action' => 'login']);
-
+    $routes->connect('/logout', ['controller' => 'users', 'action' => 'logout']);
+    $routes->connect('/register', ['controller' => 'users', 'action' => 'add']);
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */

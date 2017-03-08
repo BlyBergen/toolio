@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 /**
  * Listings Controller
@@ -16,6 +17,13 @@ class ListingsController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
+
+    public function beforeFilter(Event $event, $id = null)
+    {
+      $this->Auth->allow('index', 'view');
+      // $list_id = $this->Listing->get($id);
+    }
+
     public function index()
     {
         $listings = $this->paginate($this->Listings);
@@ -74,6 +82,7 @@ class ListingsController extends AppController
      */
     public function edit($id = null)
     {
+      if($this->userListAuth($id)){
         $listing = $this->Listings->get($id, [
             'contain' => ['Users']
         ]);
@@ -89,7 +98,13 @@ class ListingsController extends AppController
         $users = $this->Listings->Users->find('list', ['limit' => 200]);
         $this->set(compact('listing', 'users'));
         $this->set('_serialize', ['listing']);
+      }
+      else{
+        $this->Flash->error(__('You are not able to edit this listing. Permission denied.'));
+        return $this->redirect(['action' => 'index']);
+      }
     }
+
 
     /**
      * Delete method
@@ -100,6 +115,15 @@ class ListingsController extends AppController
      */
     public function delete($id = null)
     {
+      $chk = $this->userListAuth($id);
+      // if($chk){
+      //   echo('true');
+      // }
+      // else{
+      //   echo('false');
+      // }
+      // die();
+      if($chk){
         $this->request->allowMethod(['post', 'delete']);
         $listing = $this->Listings->get($id);
         if ($this->Listings->delete($listing)) {
@@ -109,7 +133,14 @@ class ListingsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+      }
+      else{
+        $this->Flash->error(__('The listing could not be deleted. Permission denied.'));
+        return $this->redirect(['action' => 'index']);
+      }
     }
+
+
 
     // public function categories()
     // {
