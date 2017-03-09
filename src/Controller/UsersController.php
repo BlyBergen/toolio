@@ -18,7 +18,7 @@ class UsersController extends AppController
      */
     public function index()
     {
-      if($this->typeAuth($id)){
+      if($this->typeAuth()){
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));

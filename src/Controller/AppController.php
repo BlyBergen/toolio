@@ -140,7 +140,7 @@ class AppController extends Controller
       return $auth_ok;
     }
 
-    public function typeAuth($id = null){
+    public function typeAuth(){
       $auth_ok = false;
       $type = $this->Auth->user('type');
       if($type == 'admin'){
