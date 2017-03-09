@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use cake\Event\Event;
 
 /**
  * Users Controller
@@ -16,6 +17,12 @@ class UsersController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
+     public function beforeFilter(Event $event, $id = null)
+     {
+       $this->Auth->allow('add');
+       // $list_id = $this->Listing->get($id);
+     }
+
     public function index()
     {
       if($this->typeAuth()){
