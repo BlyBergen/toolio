@@ -28,22 +28,30 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('font-awesome.css')?>
+    <?= $this->Html->css('font-awesome.min.css')?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+
+<!-- <link rel="stylesheet" href="webroot/css/font-awesome/css/font-awesome.min.css"> -->
+
 </head>
 <body>
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
+              <!-- <h1><a href="http://localhost:8080/toolio/home"><img src="http://localhost:8080/toolio/webroot/img/tragora_small.png"/></a></h1> -->
+                <h1><a href="http://localhost:8080/toolio/home"><i class="fa fa-university"></i> Tragora</a></h1>
             </li>
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-                <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
+                <!-- <li><a href=""><?= $this->fetch('title') ?></a></li> -->
+                <li><a href="http://localhost:8080/toolio/home">Search</a></li>
+                <li><a href="http://localhost:8080/toolio/users">Users</a></li>
+                <li><a href="http://localhost:8080/toolio/profile/">Profile</a></li>
             </ul>
         </div>
     </nav>
