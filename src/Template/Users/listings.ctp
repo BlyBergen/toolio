@@ -6,6 +6,7 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('Logout'), ['action' => 'logout']) ?></li>
         <li><?= $this->Html->link(__('New Listing'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Ratings'), ['controller' => 'Ratings', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Rating'), ['controller' => 'Ratings', 'action' => 'add']) ?></li>
@@ -27,7 +28,7 @@
                 <!-- <th scope="col"><?= $this->Paginator->sort('state') ?></th> -->
                 <!-- <th scope="col"><?= $this->Paginator->sort('zipcode') ?></th> -->
                 <th scope="col"><?= $this->Paginator->sort('price') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('time_unit') ?></th>
+                <!-- <th scope="col"><?= $this->Paginator->sort('time_unit') ?></th> -->
                 <th scope="col"><?= $this->Paginator->sort('rating') ?></th>
                 <!-- <th scope="col"><?= $this->Paginator->sort('photo_url') ?></th> -->
                 <!-- <th scope="col"><?= $this->Paginator->sort('contact') ?></th> -->
@@ -50,8 +51,8 @@
                 <td><?= h($listing->city) ?></td>
                 <!-- <td><?= h($listing->state) ?></td> -->
                 <!-- <td><?= $this->Number->format($listing->zipcode) ?></td> -->
-                <td><?= $this->Number->format($listing->price) ?></td>
-                <td><?= h($listing->time_unit) ?></td>
+                <td>$<?= $this->Number->format($listing->price) ?>/<?= h($listing->time_unit) ?></td>
+                <!-- <td><?= h($listing->time_unit) ?></td> -->
                 <td><?= $this->Number->format($listing->rating) ?></td>
                 <!-- <td><?= h($listing->photo_url) ?></td> -->
                 <!-- <td><?= h($listing->contact) ?></td> -->

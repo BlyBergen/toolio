@@ -27,7 +27,7 @@
                 <!-- <th scope="col"><?= $this->Paginator->sort('state') ?></th> -->
                 <!-- <th scope="col"><?= $this->Paginator->sort('zipcode') ?></th> -->
                 <th scope="col"><?= $this->Paginator->sort('price') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('time_unit') ?></th>
+                <!-- <th scope="col"><?= $this->Paginator->sort('time_unit') ?></th> -->
                 <th scope="col"><?= $this->Paginator->sort('rating') ?></th>
                 <!-- <th scope="col"><?= $this->Paginator->sort('photo_url') ?></th> -->
                 <!-- <th scope="col"><?= $this->Paginator->sort('contact') ?></th> -->
@@ -50,8 +50,8 @@
                 <td><?= h($listing->city) ?></td>
                 <!-- <td><?= h($listing->state) ?></td> -->
                 <!-- <td><?= $this->Number->format($listing->zipcode) ?></td> -->
-                <td><?= $this->Number->format($listing->price) ?></td>
-                <td><?= h($listing->time_unit) ?></td>
+                <td>$<?= $this->Number->format($listing->price) ?>/<?= h($listing->time_unit) ?></td>
+                <!-- <td><?= h($listing->time_unit) ?></td> -->
                 <td><?= $this->Number->format($listing->rating) ?></td>
                 <!-- <td><?= h($listing->photo_url) ?></td> -->
                 <!-- <td><?= h($listing->contact) ?></td> -->
@@ -60,10 +60,20 @@
                 <!-- <td><?= $this->Number->format($listing->saved) ?></td> -->
                 <!-- <td><?= $this->Number->format($listing->views) ?></td> -->
                 <!-- <td><?= $this->Number->format($listing->user_id) ?></td> -->
-                <td class="actions">
+                <td id="auth_actions" class="actions" >
                     <?= $this->Html->link(__('View'), ['action' => 'view', $listing->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $listing->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $listing->id], ['confirm' => __('Are you sure you want to delete # {0}?', $listing->id)]) ?>
+                    <?php $loguser = $this->request->session()->read('Auth.User');
+                    $id = $this->request->session()->read('Auth.User.id');
+                    // $id = (AuthComponent::user('id'));
+                    // echo $id;
+                    $type = $this->request->session()->read('Auth.User.type');
+                    // $type = (AuthComponent::user('type'));
+                    // echo $type;
+                    ?>
+                    <?php if (($type == 'admin') || ($id == $listing->user_id)) : ?>
+                      <?= $this->Html->link(__('Edit'), ['action' => 'edit', $listing->id]) ?>
+                      <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $listing->id], ['confirm' => __('Are you sure you want to delete # {0}?', $listing->id)]) ?>
+                    <?php endif; ?>
                 </td>
             </tr>
             <?php endforeach; ?>

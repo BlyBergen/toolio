@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Controller\AppController\Component\AuthComponent;
 
 /**
  * Listings Controller
