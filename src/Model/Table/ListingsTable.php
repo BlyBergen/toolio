@@ -55,6 +55,9 @@ class ListingsTable extends Table
         $this->addBehavior('Search.Search');
         $this->searchManager()
         ->value('category')
+        ->value('city')
+        ->value('zipcode')
+        ->value('state')
         ->add('q', 'Search.Like', [
                 'before' => true,
                 'after' => true,

@@ -23,6 +23,9 @@
 
     // You'll need to populate $authors in the template from your controller
     echo $this->Form->input('category', ['label' => 'Search by Category', 'options' => $categories, 'class' => 'form-control']);
+    echo $this->Form->input('city', ['label' => 'Search by City']);
+    echo $this->Form->input('zipcode', ['label' => 'Search by State', 'options' => $states]);
+    echo $this->Form->input('zipcode', ['label' => 'Search by Zip Code']);
 
     echo $this->Form->button('Filter', ['type' => 'submit']);
     echo $this->Html->link('Reset', ['action' => 'index']);
