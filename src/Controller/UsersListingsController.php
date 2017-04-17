@@ -49,11 +49,12 @@ class UsersListingsController extends AppController
      *
      * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($input)
     {
+      $data = $input;
         $usersListing = $this->UsersListings->newEntity();
         if ($this->request->is('post')) {
-            $usersListing = $this->UsersListings->patchEntity($usersListing, $this->request->data);
+            $usersListing = $this->UsersListings->patchEntity($usersListing, $data);
             if ($this->UsersListings->save($usersListing)) {
                 $this->Flash->success(__('The users listing has been saved.'));
 
@@ -66,6 +67,7 @@ class UsersListingsController extends AppController
         $listings = $this->UsersListings->Listings->find('list', ['limit' => 200]);
         $this->set(compact('usersListing', 'usersListings', 'users', 'listings'));
         $this->set('_serialize', ['usersListing']);
+        $this->redirect(['controller' => 'Listings', 'action' = 'index']);
     }
 
     /**

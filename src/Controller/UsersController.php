@@ -157,6 +157,7 @@ class UsersController extends AppController
     public function listings()
     {
       $this->loadModel('Listings');
+      $this->loadModel('UsersListings');
       $user = $this->Auth->user('id');
       // $listings = $this->Listings->find()->where([
       //   'user_id' => $user
@@ -164,10 +165,20 @@ class UsersController extends AppController
       $query = $this->Listings->find()->where(['user_id' => $user]);
       $listings = $this->paginate($query);
 
+      $ularray = $this->UsersListings
+      ->find()
+      ->select('listing_id')
+      ->where(['user_id' => $user]);
 
+      $saved = $this->Listings
+      ->find()
+      ->where(['id IN' => $ularray]);
+
+      $favorites = $this->paginate($saved);
 
       $this->set([
         'listings' => $listings,
+        'favorites' =>$favorites,
         'user' => $user
       ]);
     }

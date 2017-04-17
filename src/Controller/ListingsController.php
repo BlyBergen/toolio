@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Controller\AppController\Component\AuthComponent;
+use Cake\ORM\TableRegistry;
 
 /**
  * Listings Controller
@@ -152,6 +153,29 @@ class ListingsController extends AppController
         $users = $this->Listings->Users->find('list', ['limit' => 200]);
         $this->set(compact('listing', 'users'));
         $this->set('_serialize', ['listing']);
+    }
+
+    public function favorite($id = null)
+    {
+      $list_id = $id;
+      $data = [
+        'user_id' => $this->Auth->user('id'),
+        'listing_id' => $list_id
+      ];
+      $this->loadModel('UsersListings');
+      $fav = $this->UsersListings->newEntity();
+      $fav = $this->UsersListings->patchEntity($fav, $data);
+      $user_id = $this->Auth->user('id');
+      $listing_id = $list_id;
+      if($this->UsersListings->save($fav)){
+          $this->Flash->success(__('The listing has been saved.'));
+
+          return $this->redirect(['action' => 'index']);
+      }
+      $this->Flash->error(__('The listing could not be saved. Please, try again.'));
+
+      return $this->redirect(['action' => 'index']);
+
     }
 
     /**

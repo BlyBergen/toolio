@@ -84,6 +84,7 @@
                 <!-- <td><?= $this->Number->format($listing->user_id) ?></td> -->
                 <td id="auth_actions" class="actions" >
                     <?= $this->Html->link(__('View'), ['action' => 'view', $listing->id]) ?>
+                    <?= $this->Html->link(__('Favorite'), ['action' => 'favorite', $listing->id]) ?>
                     <?php $loguser = $this->request->session()->read('Auth.User');
                     $id = $this->request->session()->read('Auth.User.id');
                     $type = $this->request->session()->read('Auth.User.type');
