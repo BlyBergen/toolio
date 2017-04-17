@@ -40,6 +40,12 @@
             </tr>
         </thead>
         <tbody>
+          <?php foreach ($listings as $listing): ?>
+            <div style="background: #f44708;">
+              <h1 style="alignment: right;" display="inline"><?= h($listing->title) ?> </h1>
+              <p>$<?= $this->Number->format($listing->price) ?>/<?= h($listing->time_unit) ?></p>
+            </div>
+          <?php endforeach; ?>
             <?php foreach ($listings as $listing): ?>
             <tr>
                 <!-- <td><?= $this->Number->format($listing->id) ?></td> -->
@@ -64,11 +70,7 @@
                     <?= $this->Html->link(__('View'), ['action' => 'view', $listing->id]) ?>
                     <?php $loguser = $this->request->session()->read('Auth.User');
                     $id = $this->request->session()->read('Auth.User.id');
-                    // $id = (AuthComponent::user('id'));
-                    // echo $id;
                     $type = $this->request->session()->read('Auth.User.type');
-                    // $type = (AuthComponent::user('type'));
-                    // echo $type;
                     ?>
                     <?php if (($type == 'admin') || ($id == $listing->user_id)) : ?>
                       <?= $this->Html->link(__('Edit'), ['action' => 'edit', $listing->id]) ?>

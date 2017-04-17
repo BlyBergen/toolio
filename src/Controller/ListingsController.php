@@ -19,6 +19,16 @@ class ListingsController extends AppController
      * @return \Cake\Network\Response|null
      */
 
+     public function initialize()
+     {
+        parent::initialize();
+        $this->loadComponent('Search.Prg', [
+            // This is default config. You can modify "actions" as needed to make
+            // the PRG component work only for specified methods.
+            'actions' => ['index']
+        ]);
+    }
+
     public function beforeFilter(Event $event, $id = null)
     {
       $this->Auth->allow('index', 'view');
@@ -27,7 +37,10 @@ class ListingsController extends AppController
 
     public function index()
     {
-        $listings = $this->paginate($this->Listings);
+        $query = $this->Listings
+        ->find('search', ['search' => $this->request->query])
+        ->where(['title IS NOT' => null]);
+        $listings = $this->paginate($query);
 
         $this->set(compact('listings'));
         $this->set('_serialize', ['listings']);

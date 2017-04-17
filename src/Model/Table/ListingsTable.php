@@ -5,6 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Search\Manager;
 
 /**
  * Listings Model
@@ -50,6 +51,24 @@ class ListingsTable extends Table
             'targetForeignKey' => 'user_id',
             'joinTable' => 'users_listings'
         ]);
+
+        $this->addBehavior('Search.Search');
+        $this->searchManager()
+        ->value('category')
+        ->add('q', 'Search.Like', [
+                'before' => true,
+                'after' => true,
+                'fieldMode' => 'OR',
+                'comparison' => 'LIKE',
+                'wildcardAny' => '*',
+                'wildcardOne' => '?',
+                'field' => ['title', 'description']
+            ])
+            ->add('foo', 'Search.Callback', [
+                'callback' => function ($query, $args, $filter) {
+                    // Modify $query as required
+                }
+            ]);
     }
 
     /**

@@ -8,11 +8,11 @@ a:hover {
 }
 
 a {
-    color: #1798A5;
+    color: #f44708;
 }
 
 .side-nav li a:not(.button) {
-    color: #15848F;
+    color: #f44708;
 }
 
 .side-nav li a:not(.button):hover {
@@ -34,7 +34,7 @@ header .header-title {
 }
 
 legend {
-    color:#15848F;
+    color: #f44708;
 }
 
 .row {
@@ -307,23 +307,23 @@ pre {
 }
 
 .checks .success:before {
-    content: "✓";
+    content: "Ã¢Å“â€œ";
     color: green;
     margin-right: 9px;
 }
 
 .checks .problem:before {
-    content: "✘";
+    content: "Ã¢Å“Ëœ";
     color: red;
     margin-right: 9px;
 }
 
 .top-bar.expanded .title-area {
-    background: #01545b;
+    background: #f44708;
 }
 
 .top-bar.expanded, .top-bar,.top-bar-section ul li,.top-bar-section li:not(.has-form) a:not(.button) {
-    background: #116d76;
+    background: #f44708;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
@@ -332,7 +332,7 @@ pre {
 }
 
 .side-nav li.heading {
-    color: #1798A5;
+    color: #f44708;
     font-size: 0.875rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -375,7 +375,7 @@ table tr th {
     font-size: 0.875rem;
     color: #1798A5;
     text-align: left;
-    border-bottom: 2px solid #1798A5;
+    border-bottom: 2px solid #f44708;
 }
 
 table tr:nth-of-type(even) {
@@ -389,7 +389,7 @@ fieldset {
 }
 
 fieldset legend {
-    border-bottom: 2px solid #1798A5;
+    border-bottom: 2px solid #f44708;
     width: 100%;
     line-height: 2rem;
 }
@@ -406,7 +406,7 @@ fieldset legend {
 }
 
 button {
-    background: #966600;
+    background: #f44708;
 }
 
 div.message {
@@ -499,7 +499,7 @@ div.message.hidden {
 }
 
 .content h3 {
-    color: #be140b;
+    color: #252422;
     padding-bottom: 0.5rem;
     margin-bottom: 20px;
 }
