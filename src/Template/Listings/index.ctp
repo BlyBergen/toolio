@@ -15,6 +15,19 @@
 </nav>
 <div class="listings index large-9 medium-8 columns content">
     <h3><?= __('Listings') ?></h3>
+
+    <?php echo $this->Form->create();
+
+    // Match the search param in your table configuration
+    echo $this->Form->input('q', ['label' => 'Search by Keyword']);
+
+    // You'll need to populate $authors in the template from your controller
+    echo $this->Form->input('category', ['label' => 'Search by Category', 'options' => $categories, 'class' => 'form-control']);
+
+    echo $this->Form->button('Filter', ['type' => 'submit']);
+    echo $this->Html->link('Reset', ['action' => 'index']);
+    echo $this->Form->end(); ?>
+
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

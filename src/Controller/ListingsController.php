@@ -35,6 +35,20 @@ class ListingsController extends AppController
       // $list_id = $this->Listing->get($id);
     }
 
+    public function beforeRender(Event $event)
+    {
+      $categories = ['' => '-select-',
+        'Mechanics' => 'Mechanics',
+        'Arts/crafts' => 'Arts & Crafts',
+        'House Keeping' => 'Housekeeping',
+        'Carpentry' => 'Carpentry',
+        'Recreation' => 'Recreation',
+        'Electronics' => 'Electronics',
+        'Cookware' => 'Cookware'];
+
+        $this->set(compact('categories'));
+    }
+
     public function index()
     {
         $query = $this->Listings
