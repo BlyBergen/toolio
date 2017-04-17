@@ -4,15 +4,15 @@ a.disabled {
 }
 
 a:hover {
-    color: #000000;
+    color: #15848F;
 }
 
 a {
-    color: #252422;
+    color: #f44708;
 }
 
 .side-nav li a:not(.button) {
-    color: #252422;
+    color: #f44708;
 }
 
 .side-nav li a:not(.button):hover {
@@ -21,7 +21,7 @@ a {
 
 header {
     background-color: #D33C44;
-    color: #f44708;
+    color: #ffffff;
     font-size: 30px;
     height: 84px;
     line-height: 64px;
@@ -34,7 +34,7 @@ header .header-title {
 }
 
 legend {
-    color:#252422;
+    color: #f44708;
 }
 
 .row {
@@ -92,7 +92,7 @@ ul.pagination li a {
 }
 
 ul.pagination li.active a {
-    background-color: #403D39;
+    background-color: #DCE47E;
     color: #FFF;
     font-weight: bold;
     cursor: default;
@@ -135,11 +135,10 @@ ul.pagination .disabled:hover a {
 
 .required > label {
     font-weight: bold;
-    color: #252422;
 }
 .required > label:after {
     content: ' *';
-    color: #252422;
+    color: #C3232D;
 }
 
 select[multiple] {
@@ -308,23 +307,23 @@ pre {
 }
 
 .checks .success:before {
-    content: "✓";
+    content: "Ã¢Å“â€œ";
     color: green;
     margin-right: 9px;
 }
 
 .checks .problem:before {
-    content: "✘";
+    content: "Ã¢Å“Ëœ";
     color: red;
     margin-right: 9px;
 }
 
 .top-bar.expanded .title-area {
-    background: #252422;
+    background: #f44708;
 }
 
 .top-bar.expanded, .top-bar,.top-bar-section ul li,.top-bar-section li:not(.has-form) a:not(.button) {
-    background: #252422;
+    background: #f44708;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
@@ -333,7 +332,7 @@ pre {
 }
 
 .side-nav li.heading {
-    color: #252422;
+    color: #f44708;
     font-size: 0.875rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -341,7 +340,7 @@ pre {
 }
 
 #actions-sidebar {
-    background: #F44708;
+    background: #fafafa;
 }
 
 .index table {
@@ -374,10 +373,9 @@ table thead tr {
 table tr th {
     padding: 0.5625rem 0.625rem;
     font-size: 0.875rem;
-    color: #403D39;
+    color: #1798A5;
     text-align: left;
-    border-bottom: 3px solid #252422;
-    background-color: #F44708;
+    border-bottom: 2px solid #f44708;
 }
 
 table tr:nth-of-type(even) {
@@ -391,8 +389,7 @@ fieldset {
 }
 
 fieldset legend {
-    border-bottom: 2px solid #252422;
-    background-color: #f44708;
+    border-bottom: 2px solid #f44708;
     width: 100%;
     line-height: 2rem;
 }
@@ -409,7 +406,7 @@ fieldset legend {
 }
 
 button {
-    background: #403D39;
+    background: #f44708;
 }
 
 div.message {
@@ -449,7 +446,7 @@ div.message:before {
 
 div.message.error {
     background-color: #C3232D;
-    color: #ccc5B9;
+    color: #FFF;
 }
 
 div.message.error:before {
@@ -480,14 +477,12 @@ div.message.hidden {
 
 .content {
     padding: 2rem;
-    background: #F44708;
 }
 
 /* Use 'one true layout' methods to get equal height columns */
 .container {
     overflow: hidden;
     min-height: 92%; /* full height almost always */
-    background: #f44708;
 }
 
 /* Force equal height by overflowing */
@@ -495,7 +490,6 @@ div.message.hidden {
 #actions-sidebar {
     margin-bottom: -99999px;
     padding-bottom: 99999px;
-
 }
 @media(max-width: 640px) {
     #actions-sidebar {
@@ -505,20 +499,20 @@ div.message.hidden {
 }
 
 .content h3 {
-    color: #222;
+    color: #252422;
     padding-bottom: 0.5rem;
     margin-bottom: 20px;
 }
 
 .content h4 {
-    color: #F44708;
+    color: #be140b;
     padding-bottom: 0.5rem;
     margin-bottom: 20px;
     border-bottom: 2px solid #be140b;
 }
 
 .content .related h4 {
-    color: #F44708;
+    color: #4d8f97;
     padding-bottom: 0.5rem;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -528,6 +522,4 @@ div.message.hidden {
 table td {
     vertical-align: top;
     word-break: break-all;
-    background: #F44708;
-
 }

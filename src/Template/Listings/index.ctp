@@ -4,32 +4,34 @@
   */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Listing'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Ratings'), ['controller' => 'Ratings', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Rating'), ['controller' => 'Ratings', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="listings index large-9 medium-8 columns content">
-    <h3><?= __('Listings') ?></h3>
-
+  <h3 style="padding-top: 2rem;"><?= __('Search') ?></h3>
+  <div id="search">
     <?php echo $this->Form->create();
 
     // Match the search param in your table configuration
-    echo $this->Form->input('q', ['label' => 'Search by Keyword']);
+    echo $this->Form->input('q', ['label' => 'Search by Keyword']);?>
 
-    // You'll need to populate $authors in the template from your controller
-    echo $this->Form->input('category', ['label' => 'Search by Category', 'options' => $categories, 'class' => 'form-control']);
-    echo $this->Form->input('city', ['label' => 'Search by City']);
-    echo $this->Form->input('zipcode', ['label' => 'Search by State', 'options' => $states]);
-    echo $this->Form->input('zipcode', ['label' => 'Search by Zip Code']);
+    <div class="medium-6" style="display:inline-block; float: left; padding-right:10px;">
+      <?php echo $this->Form->input('category', ['label' => 'Search by Category', 'options' => $categories, 'class' => 'form-control']);
+      echo $this->Form->input('city', ['label' => 'Search by City']); ?>
+    </div>
 
-    echo $this->Form->button('Filter', ['type' => 'submit']);
-    echo $this->Html->link('Reset', ['action' => 'index']);
-    echo $this->Form->end(); ?>
+    <div class="medium-6" style="display:inline-block; float: right; padding-left:10px;">
+    <?php echo $this->Form->input('state', ['label' => 'Search by State', 'options' => $states]);
+    echo $this->Form->input('zipcode', ['label' => 'Search by Zip Code']);?>
+    </div>
+
+    <div class="medium-6" style="display:inline-block; float: left; padding-right:10px; text-align:right;">
+      <?php echo $this->Form->button('Filter', ['type' => 'submit']); ?>
+    </div>
+    <div class="medium-6" style="display:inline-block; float: right; padding-top:12px; padding-left:10px; text-align:left;">
+      <?php echo $this->Html->link('Reset', ['action' => 'index']);
+      echo $this->Form->end(); ?>
+    </div>
+  </div>
+</nav>
+<div class="listings index large-9 medium-8 columns content">
+    <h3><?= __('Listings') ?></h3>
 
     <table cellpadding="0" cellspacing="0">
         <thead>
